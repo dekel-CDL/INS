@@ -5,255 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>בדיקת תיק ביטוח — ייעוץ והדרכות</title>
   <meta name="description" content="בדיקה חינמית ומיידית של תיק הביטוח. מלא פרטים וקבל תשובה עם ליווי מקצועי. ייעוץ והדרכות — ביטוח ופיננסים." />
-  <meta name="theme-color" content="#0b0b0b" />
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17653967655"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-17653967655');
-  </script>
-
   <style>
-    :root{
-      --gold:#d4af37; --gold2:#f3d87a; --orange:#ff8a00; --yellow:#ffcc00;
-      --black:#0b0b0b; --mid:#1c1c1c; --deep:#0f0f0f;
-      --text:#f1f1f1; --muted:#c9c9c9; --err:#ff6b6b;
-    }
-    *{box-sizing:border-box}
-    html[dir="rtl"] body{direction:rtl}
-    body{margin:0;font-family:Arial,'Heebo',sans-serif;background:var(--black);color:var(--text);animation:fadeIn .5s ease-out both}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-
-    /* Sticky header */
-    .header{position:sticky;top:0;z-index:100;background:rgba(20,20,20,.75);backdrop-filter:blur(6px);border-bottom:1px solid #242424}
-    .header .bar{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 16px}
-    .header img.logo{height:54px;width:auto;border-radius:10px;background:#fff;padding:6px;box-shadow:0 2px 12px rgba(0,0,0,.25)}
-    .header .brand{display:flex;flex-direction:column}
-    .brand .t1{font-weight:bold;font-size:1.05rem;color:#fff}
-    .brand .t2{font-weight:bold;font-size:.9rem;color:#e7e7e7;opacity:.9}
-
-    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
-    .card{width:100%;max-width:760px;background:linear-gradient(180deg,var(--mid),var(--deep));border:1px solid #232323;border-radius:18px;box-shadow:0 10px 32px rgba(0,0,0,.45);overflow:hidden}
-    .head{padding:22px;background:linear-gradient(90deg,var(--gold),var(--gold2));color:#000}
-    .head .title{font-weight:bold;font-size:1.6rem;line-height:1.2;margin:0}
-    .head .subtitle{font-weight:bold;opacity:.9;margin-top:4px}
-
-    .body{padding:22px}
-    .hint{display:inline-block;margin-bottom:12px;padding:8px 12px;border:1px dashed #3a3a3a;border-radius:12px;color:#eaeaea;background:#151515;font-size:1rem}
-
-    form{margin-top:6px}
-    label{display:block;margin:10px 0 6px;font-weight:bold;color:#fff;font-size:1rem}
-    input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #2a2a2a;background:#1e1e1e;color:#fff;font-size:1rem}
-    input::placeholder{color:#bcbcbc}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-
-    .error{display:none;margin-top:4px;color:var(--err);font-size:.9rem}
-
-    button[type=submit]{margin-top:12px;width:100%;padding:14px;border:none;border-radius:999px;font-weight:bold;cursor:pointer;
-      background:linear-gradient(90deg,var(--orange),var(--yellow));color:#000;font-size:1.08rem;box-shadow:0 10px 24px rgba(255,165,0,.25)}
-    button[type=submit]:hover{transform:translateY(-1px)}
-    .footnote{margin-top:10px;font-size:.92rem;color:#bdbdbd;text-align:center}
-
-    /* WhatsApp floating button */
-    #waFloat{position:fixed;bottom:18px;left:18px;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;z-index:9999;box-shadow:0 6px 22px rgba(0,0,0,.35)}
-    #waFloat img{width:28px;height:28px}
-
-    /* Loader overlay */
-    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);display:none;align-items:center;justify-content:center;z-index:9998;padding:24px}
-    .spinner{width:78px;height:78px;border:6px solid #222;border-top-color:var(--gold2);border-radius:50%;animation:spin .9s linear infinite;margin:auto}
-    .overlay .msg{margin-top:14px;color:#fff;text-align:center;font-weight:bold;font-size:1.08rem}
-    @keyframes spin{to{transform:rotate(360deg)}}
-
-    /* Popup */
-    .popup{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:10000;padding:16px}
-    .popup .backdrop{position:absolute;inset:0;background:rgba(0,0,0,.65)}
-    .popup .box{position:relative;width:100%;max-width:560px;background:#111;color:#fff;border:1px solid #2a2a2a;border-radius:18px;padding:22px;
-      box-shadow:0 20px 50px rgba(0,0,0,.55);text-align:center}
-    .popup .box h3{margin:0 0 10px;color:#f3d87a;font-size:1.38rem;font-weight:bold}
-    .popup .box p{margin:0 0 10px;color:#e9e9e9;font-size:1rem}
-    .popup .actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:12px}
-    .btn{display:inline-block;padding:12px 18px;border-radius:12px;font-weight:bold;cursor:pointer;text-align:center}
-    .btn.primary{background:linear-gradient(90deg,var(--orange),var(--yellow));color:#000}
-    .btn.secondary{background:#1b1b1b;color:#fff;border:1px solid #2a2a2a}
-    .btn.whatsapp{background:#25D366;color:#000;font-weight:bold}
-
-    footer{margin:18px auto 6px;text-align:center;color:#a7a7a7;font-size:.9rem}
-
-    @media (max-width:640px){
-      .wrap{padding:14px}
-      .row{grid-template-columns:1fr}
-      .head .title{font-size:1.35rem}
-      .header img.logo{height:46px}
-    }
+    body {font-family: 'Heebo', sans-serif; background: #0b0b0b; color: #fff; direction: rtl; margin: 0; padding: 0;}
+    .container {max-width: 600px; margin: auto; padding: 30px; background: #1e1e1e; border-radius: 12px; box-shadow: 0 0 20px rgba(0,0,0,0.4); margin-top: 40px;}
+    h1 {color: #ffd700; text-align: center;}
+    label {display: block; margin-top: 15px; font-weight: bold;}
+    input, textarea {width: 100%; padding: 10px; border-radius: 8px; border: none; margin-top: 5px;}
+    button {width: 100%; background: linear-gradient(90deg, #ff8a00, #ffcc00); color: #000; font-weight: bold; border: none; padding: 12px; margin-top: 20px; border-radius: 999px; cursor: pointer;}
+    button:hover {transform: scale(1.02);}
+    .popup {display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center;}
+    .popup-content {background: #111; padding: 20px 30px; border-radius: 10px; text-align: center; color: #fff;}
   </style>
 </head>
 <body>
-  <!-- Sticky header -->
-  <div class="header">
-    <div class="bar">
-      <!-- עדכן כאן את מסלול הלוגו שלך או העלה logo.png ליד index.html -->
-      <img class="logo" src="logo.png" alt="ייעוץ והדרכות — לוגו" />
-      <div class="brand">
-        <div class="t1">ייעוץ והדרכות — ביטוח ופיננסים</div>
-        <div class="t2">ידע שמוביל להצלחה</div>
-      </div>
-    </div>
+  <div class="container">
+    <h1>בדיקת תיק הביטוח שלך</h1>
+    <p style="text-align:center; color:#ccc">מלא פרטים וקבל שירות מיידי על תיק הביטוח שלך.</p>
+    <form id="contactForm" action="https://formspree.io/f/xblzbgeo" method="POST">
+      <label>שם מלא:</label>
+      <input type="text" name="name" required placeholder="הזן שם" />
+
+      <label>סלולרי:</label>
+      <input type="tel" name="phone" required placeholder="הזן מספר טלפון" />
+
+      <label>דוא"ל:</label>
+      <input type="email" name="email" placeholder="example@email.com" />
+
+      <label>פרטים נוספים:</label>
+      <textarea name="message" rows="4" placeholder="פרטים נוספים..."></textarea>
+
+      <button type="submit">שלח</button>
+    </form>
   </div>
 
-  <div class="wrap">
-    <div class="card">
-      <div class="head">
-        <h1 class="title">בדיקת תיק ביטוח — דקה למילוי, אלפי שקלים לחיסכון</h1>
-        <div class="subtitle">בדיקה חינם וללא התחייבות · מענה מהיר</div>
-      </div>
-
-      <div class="body">
-        <span class="hint">מלא את הפרטים, נבצע בדיקה מיידית ונחזור אליך להשלמה</span>
-
-        <!-- FORM -->
-        <form id="lead-form" novalidate>
-          <label for="name">שם מלא</label>
-          <input id="name" name="name" type="text" placeholder="שם פרטי ומשפחה" required />
-          <div class="error" id="err-name">אנא מלא שם מלא</div>
-
-          <label for="tz">תעודת זהות</label>
-          <input id="tz" name="tz" type="text" inputmode="numeric" pattern="[0-9]{5,10}" placeholder="ספרות בלבד" required />
-          <div class="error" id="err-tz">אנא מלא תעודת זהות תקינה</div>
-
-          <div class="row">
-            <div>
-              <label for="dob">תאריך לידה</label>
-              <input id="dob" name="dob" type="date" required />
-              <div class="error" id="err-dob">אנא בחר תאריך לידה</div>
-            </div>
-            <div>
-              <label for="issue">תאריך הנפקה</label>
-              <input id="issue" name="issue" type="date" required />
-              <div class="error" id="err-issue">אנא בחר תאריך הנפקה</div>
-            </div>
-          </div>
-
-          <button type="submit">שלח לבדיקה</button>
-          <div class="footnote">הנתונים נשלחים בצורה מאובטחת. ניצור קשר בהקדם.</div>
-        </form>
-      </div>
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h2>תודה!</h2>
+      <p>ההודעה נשלחה בהצלחה.</p>
+      <button onclick="closePopup()">סגור</button>
     </div>
   </div>
-
-  <!-- WhatsApp Floating Button -->
-  <a id="waFloat" href="https://wa.me/972547768879?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%90%D7%AA%20%D7%94%D7%AA%D7%99%D7%A7%20%D7%94%D7%91%D7%99%D7%98%D7%95%D7%97%D7%99%20%D7%A9%D7%9C%D7%99." target="_blank" rel="noopener" aria-label="צ׳אט וואטסאפ">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-  </a>
-
-  <!-- Loader -->
-  <div class="overlay" id="overlay" aria-hidden="true">
-    <div>
-      <div class="spinner" aria-label="בודק נתונים..."></div>
-      <div class="msg">מבצע בדיקה... אנא המתן/י מספר שניות</div>
-    </div>
-  </div>
-
-  <!-- Popup -->
-  <div class="popup" id="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
-    <div class="backdrop"></div>
-    <div class="box">
-      <h3 id="popupTitle">✅ נמצאו כפילויות בתיק הביטוח שלך</h3>
-      <p>נציג מטעמנו יחזור אליך בקרוב להשלמת בדיקה וחיסכון.</p>
-      <div class="actions">
-        <a class="btn primary" id="btn-again" href="#">בדיקה נוספת</a>
-        <a class="btn secondary" id="btn-close" href="#">סגור</a>
-        <a class="btn whatsapp" id="btn-share" target="_blank" rel="noopener">שתף בוואטסאפ</a>
-      </div>
-    </div>
-  </div>
-
-  <footer>© ייעוץ והדרכות — ביטוח ופיננסים</footer>
 
   <script>
-    // ====== CONFIG ======
-    const FORMSPREE_URL = "https://formspree.io/f/mblzqwgy"; // שלך
-    // ====================
-
-    const form = document.getElementById('lead-form');
-    const overlay = document.getElementById('overlay');
+    const form = document.getElementById('contactForm');
     const popup = document.getElementById('popup');
-    const btnAgain = document.getElementById('btn-again');
-    const btnClose = document.getElementById('btn-close');
-    const btnShare = document.getElementById('btn-share');
 
-    const shareText = encodeURIComponent('גם אני עשיתי בדיקה ב“ייעוץ והדרכות” וגילו לי כפילויות בתיק הביטוח. שווה לבדוק!');
-    btnShare.href = 'https://wa.me/?text=' + shareText;
-
-    function showErr(id, show){ const el = document.getElementById(id); if(el) el.style.display = show ? 'block' : 'none'; }
-    function validate(){
-      const name = document.getElementById('name').value.trim();
-      const tz = document.getElementById('tz').value.trim();
-      const dob = document.getElementById('dob').value;
-      const issue = document.getElementById('issue').value;
-      let ok = true;
-      showErr('err-name', name.length < 2 ? !(ok=false) : false);
-      showErr('err-tz', !/^[0-9]{5,10}$/.test(tz) ? !(ok=false) : false);
-      showErr('err-dob', !dob ? !(ok=false) : false);
-      showErr('err-issue', !issue ? !(ok=false) : false);
-      return ok;
-    }
-
-    function setDisabled(dis){ Array.from(form.elements).forEach(el => el.disabled = dis); }
-    function showOverlay(show){ overlay.style.display = show ? 'flex' : 'none'; }
-    function showPopup(show){ popup.style.display = show ? 'flex' : 'none'; }
-
-    form.addEventListener('submit', async function(e){
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if(!validate()) return;
-
-      setDisabled(true);
-      showOverlay(true);
-
-      const payload = Object.fromEntries(new FormData(form).entries());
-
-      let ok = false;
-      try {
-        const resp = await fetch(FORMSPREE_URL, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-        ok = resp.ok;
-      } catch(e) {
-        ok = false;
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        popup.style.display = 'flex';
+        form.reset();
+      } else {
+        alert('שגיאה בשליחה, נסה שוב מאוחר יותר.');
       }
-
-      setTimeout(function(){
-        showOverlay(false);
-        if(ok){
-          showPopup(true);
-          try { if (typeof gtag==='function') gtag('event','conversion',{'send_to':'AW-17653967655'}); } catch(e) {}
-          form.reset();
-        } else {
-          alert('שליחה נכשלה. אנא נסה שוב בעוד רגע.');
-          setDisabled(false);
-        }
-      }, 5000);
     });
 
-    btnAgain.addEventListener('click', function(e){
-      e.preventDefault();
-      showPopup(false);
-      setDisabled(false);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    btnClose.addEventListener('click', function(e){
-      e.preventDefault();
-      showPopup(false);
-      setDisabled(false);
-    });
-    popup.querySelector('.backdrop')?.addEventListener('click', function(){
-      showPopup(false);
-      setDisabled(false);
-    });
+    function closePopup() {
+      popup.style.display = 'none';
+    }
   </script>
 </body>
 </html>
